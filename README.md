@@ -96,6 +96,8 @@ Fly.io, or a VPS) and remove that variable.
 | `services/api` | RPC indexer, SQLite stores, accounts and workspaces, HTTP API, CLI |
 | `apps/web` | Dashboard: sign-in, breaks and sign-off, holdings, corporate actions, controls log, audit export, team |
 
+See [`docs/signoff.md`](./docs/signoff.md) for how sign-off notes attach to breaks, what a fingerprint covers, and when a break reopens.
+
 ## Input files
 
 All CSV with a header row. Amounts are decimals in whole units; more precision than the asset
@@ -123,6 +125,8 @@ the reason, and the rest of the file is loaded. Each import form offers a blank 
 
 A break can be acknowledged or resolved with a note. The sign-off holds only while the figures it
 was written against are unchanged; if the break moves, it reopens.
+
+The full semantics — fingerprint scopes, stale notes and reopening, authorship from the session, and the note length limit — are in [`docs/signoff.md`](./docs/signoff.md).
 
 A reconciliation runs when a register is imported and whenever someone re-runs it. Nothing
 reconciles on a timer: a new day's comparison needs that day's register.
@@ -206,6 +210,7 @@ software: per asset and per seat.
 Contributions are welcome. Start with [`CONTRIBUTING.md`](./CONTRIBUTING.md) for setup and the
 rules that matter, and [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) for how the code fits
 together. Report security problems privately, as described in [`SECURITY.md`](./SECURITY.md).
+Analysts and auditors should read [`docs/signoff.md`](./docs/signoff.md) for sign-off behaviour.
 Everyone taking part is expected to follow the [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 ## License
